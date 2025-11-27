@@ -1,0 +1,5 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Adjust this value based on your navbar height */
+}

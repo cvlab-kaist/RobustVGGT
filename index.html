@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robust VGGT</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/sidebar.css">
+  <link rel="stylesheet" href="static/css/scroll.css">
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/copy2clipboard.js"></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+  <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+</head>
+
+
+<body>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar-nav">
+    <div class="nav-line"></div>
+    <a href="#Abstract" class="nav-item active" data-target="Abstract">
+      <span class="nav-dot"></span>
+      <span class="nav-label">Abstract</span>
+    </a>
+    <a href="#Layer Analysis" class="nav-item" data-target="Layer Analysis">
+      <span class="nav-dot"></span>
+      <span class="nav-label">Analysis</span>
+    </a>
+    <a href="#Architecture" class="nav-item" data-target="Architecture">
+      <span class="nav-dot"></span>
+      <span class="nav-label">Method</span>
+    </a>
+    <a href="#Visualization" class="nav-item" data-target="Visualization">
+      <span class="nav-dot"></span>
+      <span class="nav-label">Visualization</span>
+    </a>
+    <a href="#Quantitative Results" class="nav-item" data-target="Quantitative Results">
+      <span class="nav-dot"></span>
+      <span class="nav-label">Experiments</span>
+    </a>
+    <a href="#BibTeX" class="nav-item" data-target="BibTeX">
+      <span class="nav-dot"></span>
+      <span class="nav-label">Citation</span>
+    </a>
+  </div>
+
+  <!-- Navigation bar. -->
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+    <div class="container is-max-desktop">
+
+      <!-- Lab logo. Will stay here even if view from mobile -->
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://cvlab.kaist.ac.kr/" target="_blank" rel="noopener noreferrer">
+          <img src="./static/images/cvlab.png" alt="CVLAB" class="navbar-logo">
+        </a>
+        <a role="button"
+          onclick="this.classList.toggle('is-active');document.querySelector('#'+this.dataset.target).classList.toggle('is-active');"
+          class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <!-- Will collapse into a "burger" menu on mobile. -->
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start" style="display: flex; align-items: center;">
+          <!-- KAIST Logo -->
+          <a class="navbar-item" href="https://www.kaist.edu" target="_blank" style="padding: 0; margin-right: 2rem;">
+            <img src="./static/images/kaist.png" alt="KAIST Logo" style="height: 2.0rem;">
+          </a>
+          <!-- NYU Logo -->
+          <a class="navbar-item" href="https://www.nyu.edu/" target="_blank" style="padding: 0; margin-right: 1.5em;">
+            <img src="./static/images/NYU_Long_RGB_Color.png" alt="NYU Logo" style="height: 2.0rem;">
+          </a>
+
+          <!-- ETH Logo -->
+          <a class="navbar-item" href="https://www.ethz.ch/" target="_blank" style="padding: 0;margin-right: 1.5rem;">
+            <img src="./static/images/eth.png" alt="ETH Logo" style="height: 2.0rem;">
+          </a>
+
+          <!-- stanford Logo -->
+          <a class="navbar-item" href="https://www.stanford.edu/" target="_blank"
+            style="padding: 0;;margin-right: 1rem">
+            <img src="./static/images/berkeley.png" alt="Berkeley Logo" style="height: 2.0rem; max-width: none;">
+          </a>
+
+        </div>
+
+        <!-- </div> -->
+
+
+
+        <!-- <div class="navbar-end">
+        <!-- After accepted, add conference logo here -->
+        <!-- <a class="navbar-item" href="https://cvpr.thecvf.com/Conferences/2024" target="_blank" rel="noopener noreferrer">
+            <img src="img/logo/logo-cvpr.png" alt="CVPR 2024" style="height: 2.0rem;">
+        </a> -->
+
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://ai4ce.github.io/DeepExplorer/">
+              DeepExplorer
+            </a>
+            <a class="navbar-item" href="https://ai4ce.github.io/EgoPAT3Dv2/">
+              EgoPAT3Dv2
+            </a>
+          </div>
+        </div> -->
+
+        <!-- </div> -->
+
+        <!-- </div> -->
+
+      </div>
+  </nav>
+
+  <!-- Title and authors. -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">Emergent Outlier View Rejection in Visual Geometry Grounded
+              Transformers</h1>
+            <!-- <div class="column is-full_width">
+            <h2 class="title is-4"><a href="https://2025.ieee-icra.org">ICRA 2025 (Under Review)</a></h2>
+          </div> -->
+            <!-- <h2 class="subtitle is-2 has-text-weight-bold publication-subtitle mt-2">
+            On Review
+          </h2> -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://onground-korea.github.io/">Jisang Han</a><sup>1*</sup>,</span>
+              <span class="author-block">
+                <a href="https://sunghwanhong.github.io/">Sunghwan Hong</a><sup>2*</sup>,</span>
+              <span class="author-block">
+                <a href="https://crepejung00.github.io/">Jaewoo Jung</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?hl=ko&user=7cyLEQ0AAAAJ">Wooseok Jang</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://hg010303.github.io/">Honggyu An</a><sup>1</sup>,
+              </span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://qianqianwang68.github.io/">Qianqian Wang</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=cIK1hS8AAAAJ">Seungryong Kim</a><sup>1</sup>,
+              </span>
+              <span class="author-block"></span>
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a><sup>4</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup> KAIST AI&nbsp;</span>
+              <span class="author-block"><sup>2</sup> ETH AI Center, ETH Zurich&nbsp;</span>
+              <span class="author-block"><sup>3</sup> UC Berkeley&nbsp;</span>
+              <span class="author-block"><sup>4</sup> New York University&nbsp;</span>
+              <br>
+              <span class="author-block"><sup>*</sup> Equal Contribution </span>
+              <span class="author-block"><sup>†</sup> Co-corresponding authors </span>
+            </div>
+
+
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <!-- add here later. -->
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="hero teaser" style="padding-top: 0rem; margin-bottom: 0rem">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <p class="tldr">
+            We reveal that Visual Geometry Grounded Transformers (VGGT) has a built-in ability to detect outliers, which
+            we leverage to perform outlier-view rejection without any fine-tuning.
+          </p>
+          <br>
+          <div id="Overview">
+            <img src="./static/images/motivation.png"
+              style="display: block; margin: auto; width: 100%; max-width: 1000px;" alt="Overview Image">
+            <figcaption style="text-align: left; margin-top: 10px;">
+              <strong>Our key contributions.</strong> We reveal that VGGT’s internal attention and feature
+              representations exhibit emergent noise-suppressing behavior, and we exploit this to design a simple,
+              training-free filtering mechanism that selects geometrically consistent views via a single global
+              threshold on internal signals. Across diverse benchmarks and noise settings, this approach consistently
+              improves robustness and reconstruction quality over strong baselines.
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="hero summary" id="Abstract">
+    <div class="container is-max-desktop">
+      <div class="columns">
+        <div class="column is-full-width summary"
+          style="background-color: #f5f5f5; border-radius: 10px; padding: 10px; margin-top: 50px;">
+          <!-- Abstract Title -->
+          <h2 class="title is-3 has-text-centered" style="margin-top: 5px; margin-bottom: 5px;">Abstract</h2>
+
+          <!-- Abstract Content -->
+          <p style="font-size: 18px; text-align: left; line-height: 1.8; margin-top: 5px; margin-bottom: 5px;">
+            Reliable 3D reconstruction from in-the-wild image collections is often hindered by ``noisy''
+            images—irrelevant inputs with little or no view overlap with others. While traditional Structure-from-Motion
+            pipelines handle such cases through geometric verification and outlier rejection, feed-forward 3D
+            reconstruction models lack these explicit mechanisms, leading to degraded performance under in-the-wild
+            conditions. In this paper, we discover that the existing feed-forward reconstruction model, e.g., VGGT,
+            despite lacking explicit outlier-rejection mechanisms or noise-aware training, can inherently distinguish
+            distractor images. Through an in-depth analysis under varying proportions of synthetic distractors, we
+            identify a specific layer that naturally exhibits outlier-suppressing behavior. Further probing reveals that
+            this layer encodes discriminative internal representations that enable an effective noise-filtering
+            capability, which we simply leverage to perform outlier-view rejection in feed-forward 3D reconstruction
+            without any additional fine-tuning or supervision. Extensive experiments on both controlled and in-the-wild
+            datasets demonstrate that this implicit filtering mechanism is consistent and generalizes well across
+            diverse scenarios.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <hr>
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+
+          <h2 class="title is-3">Layer analysis</h2>
+          <div id="Layer Analysis">
+            <img src="./static/images/analysis.png"
+              style="display: block; margin: auto; width: 100%; max-width: 1000px;" alt="Overview Image">
+            <figcaption style="text-align: left; margin-top: 10px; margin-bottom: 10px">
+              <strong>Layer analysis</strong>. We measure the gap between clean and distractor views for attention and
+              feature similarity across VGGT’s all layers. The separation grows with depth and peaks at the final layer,
+              indicating emergent noise suppression.
+            </figcaption>
+          </div>
+
+          <div id="Layer Analysis">
+            <img src="./static/images/layer_analysis.png"
+              style="display: block; margin: auto; width: 100%; max-width: 1000px;" alt="Overview Image">
+            <figcaption style="text-align: left; margin-top: 10px; margin-bottom: 10px">
+              <strong>Feature/attention visualization</strong>. We show cross-view attention maps and intermediate
+              feature–similarity maps from the final layer of VGGT on mixed sets containing clean and distractor images.
+              Distractors are marked with red boxes; the query image is marked with a blue box. For each context image,
+              scores are computed with respect to the query, averaged over all query tokens, and normalized for display.
+              Both probes clearly downweight distractor views, revealing the model’s emergent view selectivity.
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+
+          <h2 class="title is-3 has-text-centered">Architecture</h2>
+
+          <div id="Architecture">
+            <figure id="Architecture-figure">
+              <img src="./static/images/architecture.png" alt="Overview of our framework">
+              <figcaption style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
+                <strong>Our framework.</strong>
+                We compute per-view relevance from VGGT’s internal representations
+                using two probes: (i) cross-view attention from query–key projections
+                and (ii) cosine similarity of intermediate dense features. The resulting
+                score is thresholded with a single global value to filter distractors,
+                and the filtered set is re-fed to VGGT for reconstruction—without
+                retraining or architectural changes.
+              </figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+  <section class="section" id="Visualization">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width"
+          style="background-color: #ffffff; border: 3px solid #dbdbdb; border-radius: 10px; padding: 20px;">
+          <h2 class="title is-3 has-text-centered">Visualization from internet collected images</h2>
+          <div class="content has-text-justified">
+
+            <center>
+
+              <!-- Scene Toggle -->
+              <div class="scene-selector-container" id="scene-selector-b">
+                <button class="scene-btn active" onclick="switchSceneB('scene1', this)">Scene 1</button>
+                <button class="scene-btn" onclick="switchSceneB('scene2', this)">Scene 2</button>
+                <button class="scene-btn" onclick="switchSceneB('scene3', this)">Scene 3</button>
+              </div>
+
+              <!-- Scene Image -->
+              <div style="margin-top: 20px;">
+                <img id="sceneImageB" src="" alt="Selected scene" style="max-width: 80%; height: auto; display: none;">
+              </div>
+
+            </center>
+
+            <!-- JavaScript -->
+            <script>
+              function switchSceneB(scene, btn) {
+                const img = document.getElementById('sceneImageB');
+                img.src = `./static/images/itw_${scene}.png`;
+                img.style.display = 'block';
+
+                if (btn) {
+                  const buttons = document.querySelectorAll('#scene-selector-b .scene-btn');
+                  buttons.forEach(b => b.classList.remove('active'));
+                  btn.classList.add('active');
+                }
+              }
+
+              document.addEventListener('DOMContentLoaded', function () {
+                const firstBtn = document.querySelector('#scene-selector-b .scene-btn');
+                switchSceneB('scene1', firstBtn);
+              });
+            </script>
+
+            <!-- CSS -->
+            <style>
+              /* Fancy Toggle Switch */
+              .scene-selector-container {
+                display: inline-flex;
+                background-color: #f1f1f1;
+                border-radius: 50px;
+                padding: 5px;
+                box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+                margin-bottom: 15px;
+              }
+
+              .scene-btn {
+                border: none;
+                background: transparent;
+                padding: 10px 25px;
+                border-radius: 50px;
+                font-size: 1rem;
+                font-weight: 600;
+                color: #777;
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                outline: none;
+              }
+
+              .scene-btn:hover {
+                color: #333;
+              }
+
+              .scene-btn.active {
+                background-color: #ffffff;
+                color: #4a4a4a;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transform: scale(1.05);
+              }
+            </style>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width" style="border: 3px solid #dbdbdb; border-radius: 10px; padding: 20px;">
+          <h2 class="title is-3 has-text-centered">Visualization</h2>
+          <div class="content has-text-justified">
+
+            <center>
+
+              <!-- Scene Toggle -->
+              <div class="scene-selector-container" id="scene-selector-a">
+                <button class="scene-btn active" onclick="switchSceneA('scene1', this)">Scene 1</button>
+                <button class="scene-btn" onclick="switchSceneA('scene2', this)">Scene 2</button>
+                <button class="scene-btn" onclick="switchSceneA('scene3', this)">Scene 3</button>
+                <button class="scene-btn" onclick="switchSceneA('scene4', this)">Scene 4</button>
+              </div>
+
+              <!-- Scene Image -->
+              <div style="margin-top: 20px;">
+                <img id="sceneImageA" src="" alt="Selected scene" style="max-width: 80%; height: auto; display: none;">
+              </div>
+
+            </center>
+
+            <!-- JavaScript -->
+            <script>
+              function switchSceneA(scene, btn) {
+                const img = document.getElementById('sceneImageA');
+                img.src = `./static/images/${scene}.png`;
+                img.style.display = 'block';
+
+                if (btn) {
+                  const buttons = document.querySelectorAll('#scene-selector-a .scene-btn');
+                  buttons.forEach(b => b.classList.remove('active'));
+                  btn.classList.add('active');
+                }
+              }
+
+              document.addEventListener('DOMContentLoaded', function () {
+                const firstBtn = document.querySelector('#scene-selector-a .scene-btn');
+                switchSceneA('scene1', firstBtn);
+              });
+            </script>
+
+            <!-- CSS -->
+            <style>
+
+            </style>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+
+          <h2 class="title is-3">Baseline Comparison Table</h2>
+          <div id="Quantitative Results">
+            <embed src="./static/images/quan.png" style="display: block; margin: auto; width: 90%; max-width: 1000px;"
+              alt="Overview Image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- <hr> -->
+
+  <!-- Videos -->
+  <!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered ">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Videos</h2>
+        <div class="content has-text-justified"> -->
+  <!-- <p>
+          1. <b>Robust Global Shape Representation:</b> Visual hull and depth estimated from foundation models initiates 3D Gaussians. RGB-D images and foundation-model-estimated normals are used to supervise subsequent training.
+          </p>
+          <p>
+          2. <b>Active Touch Selection:</b> Geometric properties and common-sense from VLM guide the robot to touch the most informative regions.
+          </p>
+          <p>
+          3. <b>Local Geometric Optimization:</b> Add tactile readings as new anchor Gaussian points to improve the original 3D Gaussians.
+          </p> -->
+  <!-- </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <center>
+        <h2 id="bibtexTitle" class="title">BibTeX</h2>
+        <button id="copyButton" onclick="copyToClipboard()">
+          <i class="fas fa-copy"></i>
+        </button>
+        <br>
+        <pre style="text-align: left" ;><code id="bibtexInfo">need to fill in</code></pre>
+      </center>
+    </div>
+  </section>
+
+
+
+  <!-- Acknowledgements   -->
+  <section class="section" id="Acknowledgements">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgements</h2>
+      need to fill in
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.<br>
+              This AI4CE template is created by <a href="https://irvingf7.github.io/">Irving Fang</a>.<br>
+              This webpage template is originally from <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+              We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this
+              template.
+              This website is then inspired by the project page of <a href="https://cat3d.github.io/">CAT3D</a>, <a
+                href="https://armlabstanford.github.io/touch-gs">Touch-GS</a> and <a
+                href="https://baegwangbin.github.io/DSINE/">DSINE</a>.
+            </p>
+          </div>
+        </div>
+        </p>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
