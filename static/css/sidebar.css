@@ -2,21 +2,24 @@
 .sidebar-nav {
     position: fixed;
     top: 50%;
-    left: 20px;
+    left: 30px;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 25px;
     z-index: 1000;
+    padding: 20px 0;
 }
 
+/* The vertical line */
 .nav-line {
     position: absolute;
-    left: 7px;
-    top: 10px;
-    bottom: 10px;
+    left: 6px;
+    /* Center with the dots */
+    top: 20px;
+    bottom: 20px;
     width: 2px;
-    background-color: #e0e0e0;
+    background: linear-gradient(to bottom, transparent, #e0e0e0 15%, #e0e0e0 85%, transparent);
     z-index: -1;
 }
 
@@ -24,42 +27,63 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #888;
+    color: #b0b0b0;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
+    padding: 2px 0;
 }
 
 .nav-dot {
     width: 14px;
     height: 14px;
-    background-color: #d0d0d0;
+    background-color: #fff;
+    border: 2px solid #d0d0d0;
     border-radius: 50%;
     margin-right: 15px;
-    transition: all 0.3s ease;
-    border: 2px solid #fff;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+    /* To sit above the line */
 }
 
 .nav-label {
     font-size: 1rem;
-    opacity: 0.7;
-    transition: all 0.3s ease;
+    opacity: 0.6;
+    transform: translateX(0);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-family: 'Google Sans', sans-serif;
 }
 
-.nav-item:hover .nav-label,
-.nav-item.active .nav-label {
-    color: #8b00e1cb;
-    /* Purple color */
+/* Hover State */
+.nav-item:hover .nav-label {
     opacity: 1;
-    font-weight: bold;
+    color: #57068c;
+    transform: translateX(5px);
 }
 
-.nav-item:hover .nav-dot,
+.nav-item:hover .nav-dot {
+    border-color: #57068c;
+    transform: scale(1.1);
+    background-color: #f0f0f0;
+}
+
+/* Active State */
+.nav-item.active .nav-label {
+    color: #57068c;
+    opacity: 1;
+    font-weight: 700;
+    transform: translateX(8px);
+    text-shadow: 0 0 1px rgba(87, 6, 140, 0.1);
+}
+
 .nav-item.active .nav-dot {
-    background-color: #8b00e1cb;
-    transform: scale(1.2);
-    border-color: #fff;
+    background-color: #57068c;
+    border-color: #57068c;
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(87, 6, 140, 0.4);
+    /* Glow effect */
 }
 
 @media screen and (max-width: 1200px) {
