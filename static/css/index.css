@@ -326,3 +326,161 @@ body {
   margin-right: 1rem;
   padding: 0;
 }
+
+/* Affiliation Logos */
+.affiliation-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; Removed for left align */
+  gap: 0.5rem;
+  /* width: 100%; Removed for left align */
+}
+
+.affiliation-link {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.kaist-link {
+  margin-right: 0.5rem;
+  /* Extra space between KAIST and NYU */
+}
+
+.affiliation-logo {
+  height: 1.8rem;
+  /* Slightly larger base size */
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.affiliation-logo:hover {
+  transform: scale(1.1);
+}
+
+.berkeley-logo {
+  margin-top: 5px;
+  /* Push down slightly */
+}
+
+.kaist-logo {
+  height: 1.7rem;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+
+  /* Layout Padding */
+  .section,
+  .container,
+  .hero-body {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  /* Navbar & Logos */
+  /* Force navbar menu to be visible on mobile */
+  .navbar-menu {
+    display: block !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+  }
+
+  .affiliation-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Center on mobile for better balance */
+    gap: 0.5rem;
+  }
+
+  .kaist-link {
+    margin-right: 0;
+    /* Remove extra margin on mobile */
+  }
+
+  .affiliation-logo {
+    height: 1.5rem;
+    /* Adaptive size for mobile */
+  }
+
+  .kaist-logo {
+    height: 1.4rem;
+    /* Adaptive size for mobile */
+  }
+
+  /* Architecture Figure */
+  #Architecture-figure {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #Architecture-figure img {
+    max-width: 100%;
+  }
+
+  #Architecture-figure figcaption {
+    max-width: 100%;
+    text-align: center;
+    /* Center text on mobile */
+  }
+
+  /* Typography */
+  html,
+  body {
+    font-size: 14px;
+    /* Base font size reduction */
+  }
+
+  .publication-title {
+    font-size: 1.5rem !important;
+    /* Smaller title on mobile */
+  }
+
+  .publication-authors {
+    font-size: 0.9rem !important;
+  }
+
+  .title.is-3 {
+    font-size: 1.5rem !important;
+  }
+
+  .title.is-4 {
+    font-size: 1.25rem !important;
+  }
+
+  .subtitle {
+    font-size: 1rem !important;
+  }
+
+  .content {
+    font-size: 0.95rem !important;
+  }
+
+  .content p {
+    font-size: 0.95rem !important;
+  }
+
+  .tldr {
+    font-size: 0.9rem !important;
+    padding: 15px !important;
+    /* Ensure padding inside the box */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Hide Navbar completely on mobile */
+  .navbar {
+    display: none !important;
+  }
+
+  /* Fix Abstract Text Size */
+  #Abstract p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .teaser .hero-body {
+    padding-bottom: 1.5rem;
+  }
+}

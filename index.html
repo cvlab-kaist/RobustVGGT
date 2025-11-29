@@ -82,73 +82,32 @@
     <div class="container is-max-desktop">
 
       <!-- Lab logo. Will stay here even if view from mobile -->
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://cvlab.kaist.ac.kr/" target="_blank" rel="noopener noreferrer">
-          <img src="./static/images/cvlab.png" alt="CVLAB" class="navbar-logo">
-        </a>
-        <a role="button"
-          onclick="this.classList.toggle('is-active');document.querySelector('#'+this.dataset.target).classList.toggle('is-active');"
-          class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
 
-      <!-- Will collapse into a "burger" menu on mobile. -->
+
+      <!-- Empty navbar menu (logos removed) -->
       <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start" style="display: flex; align-items: center;">
+        <div class="navbar-start affiliation-container">
           <!-- KAIST Logo -->
-          <a class="navbar-item" href="https://www.kaist.edu" target="_blank" style="padding: 0; margin-right: 2rem;">
-            <img src="./static/images/kaist.png" alt="KAIST Logo" style="height: 2.0rem;">
+          <a class="navbar-item affiliation-link kaist-link" href="https://www.kaist.edu" target="_blank">
+            <img src="./static/images/kaist.png" alt="KAIST Logo" class="affiliation-logo kaist-logo">
           </a>
           <!-- NYU Logo -->
-          <a class="navbar-item" href="https://www.nyu.edu/" target="_blank" style="padding: 0; margin-right: 1.5em;">
-            <img src="./static/images/NYU_Long_RGB_Color.png" alt="NYU Logo" style="height: 2.0rem;">
+          <a class="navbar-item affiliation-link" href="https://www.nyu.edu/" target="_blank">
+            <img src="./static/images/NYU_Long_RGB_Color.png" alt="NYU Logo" class="affiliation-logo">
           </a>
 
           <!-- ETH Logo -->
-          <a class="navbar-item" href="https://www.ethz.ch/" target="_blank" style="padding: 0;margin-right: 1.5rem;">
-            <img src="./static/images/eth.png" alt="ETH Logo" style="height: 2.0rem;">
+          <a class="navbar-item affiliation-link" href="https://www.ethz.ch/" target="_blank">
+            <img src="./static/images/eth.png" alt="ETH Logo" class="affiliation-logo">
           </a>
 
-          <!-- stanford Logo -->
-          <a class="navbar-item" href="https://www.stanford.edu/" target="_blank"
-            style="padding: 0;;margin-right: 1rem">
-            <img src="./static/images/berkeley.png" alt="Berkeley Logo" style="height: 2.0rem; max-width: none;">
+          <!-- Berkeley Logo -->
+          <a class="navbar-item affiliation-link" href="https://www.berkeley.edu/" target="_blank">
+            <img src="./static/images/berkeley.png" alt="Berkeley Logo" class="affiliation-logo berkeley-logo">
           </a>
-
         </div>
-
-        <!-- </div> -->
-
-
-
-        <!-- <div class="navbar-end">
-        <!-- After accepted, add conference logo here -->
-        <!-- <a class="navbar-item" href="https://cvpr.thecvf.com/Conferences/2024" target="_blank" rel="noopener noreferrer">
-            <img src="img/logo/logo-cvpr.png" alt="CVPR 2024" style="height: 2.0rem;">
-        </a> -->
-
-        <!-- <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More Research
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://ai4ce.github.io/DeepExplorer/">
-              DeepExplorer
-            </a>
-            <a class="navbar-item" href="https://ai4ce.github.io/EgoPAT3Dv2/">
-              EgoPAT3Dv2
-            </a>
-          </div>
-        </div> -->
-
-        <!-- </div> -->
-
-        <!-- </div> -->
-
       </div>
+    </div>
   </nav>
 
   <!-- Title and authors. -->
@@ -297,13 +256,13 @@
 
 
 
-  <section class="section">
+  <section class="section" id="Layer-Analysis">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
 
           <h2 class="title is-3">Layer analysis</h2>
-          <div id="Layer-Analysis">
+          <div>
             <img src="./static/images/analysis.png"
               style="display: block; margin: auto; width: 100%; max-width: 1000px;" alt="Overview Image">
             <figcaption style="text-align: left; margin-top: 10px; margin-bottom: 10px">
@@ -329,14 +288,14 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="Architecture">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width">
 
           <h2 class="title is-3 has-text-centered">Architecture</h2>
 
-          <div id="Architecture">
+          <div>
             <figure id="Architecture-figure">
               <img src="./static/images/architecture.png" alt="Overview of our framework">
               <figcaption style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
@@ -501,13 +460,13 @@
   </section>
 
 
-  <section class="section">
+  <section class="section" id="Quantitative-Results">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
 
           <h2 class="title is-3">Baseline Comparison Table</h2>
-          <div id="Quantitative-Results">
+          <div>
             <embed src="./static/images/quan.png" style="display: block; margin: auto; width: 90%; max-width: 1000px;"
               alt="Overview Image">
           </div>
@@ -563,6 +522,8 @@
 
 
 
+
+
   <!-- Acknowledgements   -->
   <section class="section" id="Acknowledgements">
     <div class="container is-max-desktop content">
@@ -570,6 +531,9 @@
       need to fill in
     </div>
   </section>
+
+
+
 
   <!-- Footer -->
   <footer class="footer">

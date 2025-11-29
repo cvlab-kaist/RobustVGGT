@@ -81,72 +81,87 @@ document.addEventListener('DOMContentLoaded', () => {
   const navItems = document.querySelectorAll('.nav-item');
   const sections = [];
 
-  // Collect sections corresponding to nav items
+  // Collect all sections and their corresponding nav items
   navItems.forEach(item => {
-    const id = item.getAttribute('data-target');
-    const section = document.getElementById(id);
+    const targetId = item.getAttribute('data-target');
+    const section = document.getElementById(targetId);
     if (section) {
-      sections.push({ id, element: section, navItem: item });
+      sections.push({
+        id: targetId,
+        element: section,
+        navItem: item
+      });
     }
   });
 
-  // Flag to disable observer during manual scroll/click
-  let isManualScroll = false;
-  let scrollTimeout;
+  if (sections.length === 0) return;
 
-  // IntersectionObserver options
-  // rootMargin: '-20% 0px -60% 0px' creates a horizontal band across the viewport
-  // from 20% down to 40% down. A section is "intersecting" if it crosses this band.
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -60% 0px',
-    threshold: 0
-  };
+  // Track if user manually clicked (to prevent immediate override)
+  let isUserClicking = false;
+  let clickTimeout = null;
 
-  const observer = new IntersectionObserver((entries) => {
-    if (isManualScroll) return;
+  // Function to update active nav item based on scroll position
+  function updateActiveNavOnScroll() {
+    if (isUserClicking) return; // Don't update while user is clicking
 
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Remove active class from all items
-        navItems.forEach(item => item.classList.remove('active'));
+    const scrollPosition = window.scrollY + window.innerHeight / 3; // Check at 1/3 from top
 
-        // Find the matching nav item and add active class
-        const id = entry.target.getAttribute('id');
-        const navItem = document.querySelector(`.nav-item[data-target="${id}"]`);
-        if (navItem) {
-          navItem.classList.add('active');
-        }
+    let currentSection = null;
+
+    // Find which section we're currently in
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = sections[i];
+      const sectionTop = section.element.offsetTop;
+
+      if (scrollPosition >= sectionTop) {
+        currentSection = section;
+        break;
       }
-    });
-  }, observerOptions);
+    }
 
-  // Start observing all sections
-  sections.forEach(section => {
-    observer.observe(section.element);
-  });
+    // If we found a current section, update the active state
+    if (currentSection) {
+      navItems.forEach(item => item.classList.remove('active'));
+      currentSection.navItem.classList.add('active');
+    }
+  }
 
-  // Add click event listeners for immediate feedback and locking
+  // Listen to scroll events with throttling
+  let scrollTimeout = null;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+
+    scrollTimeout = setTimeout(() => {
+      updateActiveNavOnScroll();
+    }, 50); // Small delay for performance
+  }, { passive: true });
+
+  // Handle nav item clicks
   navItems.forEach(item => {
     item.addEventListener('click', (e) => {
-      // Allow default anchor click behavior (scrolling)
-
-      // Set manual scroll flag to ignore observer updates
-      isManualScroll = true;
-
-      // Update active class immediately
+      // Immediately update active state
       navItems.forEach(nav => nav.classList.remove('active'));
       item.classList.add('active');
 
-      // Clear existing timeout
-      if (scrollTimeout) clearTimeout(scrollTimeout);
+      // Set flag to prevent scroll listener from overriding
+      isUserClicking = true;
 
-      // Reset flag after scroll animation finishes (approx 1000ms)
-      scrollTimeout = setTimeout(() => {
-        isManualScroll = false;
-        // Optional: Re-check intersection if needed, but usually not necessary
-        // as the user is now at the target section.
+      // Clear any existing timeout
+      if (clickTimeout) {
+        clearTimeout(clickTimeout);
+      }
+
+      // Reset flag after scroll animation completes
+      clickTimeout = setTimeout(() => {
+        isUserClicking = false;
+        // Re-check position after scroll settles
+        updateActiveNavOnScroll();
       }, 1000);
     });
   });
+
+  // Initial update on page load
+  updateActiveNavOnScroll();
 });
