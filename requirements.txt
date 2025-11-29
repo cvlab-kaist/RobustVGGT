@@ -1,0 +1,10 @@
+numpy==1.26.4
+pillow
+opencv-python
+plyfile
+huggingface_hub
+safetensors
+evo
+scipy
+einops
+tqdm

@@ -1,0 +1,10 @@
+*result*/
+
+*/__pycache__
+*/*/__pycache__
+*/*/*/__pycache__
+*/*/*/*/__pycache__
+*/*/*/*/*/__pycache__
+*/*/*/*/*/*/__pycache__
+
+checkpoints/*
