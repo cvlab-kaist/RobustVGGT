@@ -1,9 +1,9 @@
 <p align="center">
   <h1 align="center">Emergent Outlier View Rejection in Visual Geometry Grounded Transformers</h1>
   <p align="center">
-    <a href="https://onground-korea.github.io/">Jisang Han</a><sup>1,2,‡,*</sup>
+    <a href="https://onground-korea.github.io/">Jisang Han</a><sup>1,2*</sup>
     ·
-    <a href="https://sunghwanhong.github.io/">Sunghwan Hong</a><sup>3,*</sup>
+    <a href="https://sunghwanhong.github.io/">Sunghwan Hong</a><sup>3*</sup>
     ·
     <a href="https://crepejung00.github.io/">Jaewoo Jung</a><sup>1</sup>
     ·
@@ -13,12 +13,12 @@
     ·
     <a href="https://qianqianwang68.github.io/">Qianqian Wang</a><sup>4</sup>
     ·
-    <a href="https://scholar.google.com/citations?user=cIK1hS8AAAAJ">Seungryong Kim</a><sup>1,†</sup>
+    <a href="https://scholar.google.com/citations?user=cIK1hS8AAAAJ">Seungryong Kim</a><sup>1†</sup>
     ·
-    <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a><sup>2,†</sup>
+    <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a><sup>2†</sup>
   </p>
   <h4 align="center"><sup>1</sup>KAIST AI, <sup>2</sup>New York University, <sup>3</sup>ETH AI Center, ETH Zurich, <sup>4</sup>UC Berkeley</h4>
-  <p align="center"><sup>‡</sup>Work done during a visiting researcher at New York University&emsp;<sup>*</sup>Equal contributions&emsp;<sup>†</sup>Co-corresponding</p>
+  <!-- <p align="center"><sup>‡</sup>Work done during a visiting researcher at New York University&emsp;<sup>*</sup>Equal contributions&emsp;<sup>†</sup>Co-corresponding</p> -->
   <h3 align="center"><a href="#">Paper</a> | <a href="https://cvlab-kaist.github.io/RobustVGGT">Project Page</a></h3>
   <div align="center"></div>
 </p>
