@@ -18,6 +18,7 @@
     <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a><sup>2,†</sup>
   </p>
   <h4 align="center"><sup>1</sup>KAIST AI, <sup>2</sup>New York University, <sup>3</sup>ETH AI Center, ETH Zurich, <sup>4</sup>UC Berkeley</h4>
+  <h5 align="center"><sup>‡</sup>Work done during a visiting researcher at New York University&emsp;<sup>*</sup>Equal contributions&emsp;<sup>†</sup>Co-corresponding</h5>
   <h3 align="center"><a href="#">Paper</a> | <a href="https://cvlab-kaist.github.io/RobustVGGT">Project Page</a></h3>
   <div align="center"></div>
 </p>
