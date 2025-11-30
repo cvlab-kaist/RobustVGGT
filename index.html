@@ -28,7 +28,6 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  <link rel="stylesheet" href="static/css/sidebar.css">
   <link rel="stylesheet" href="static/css/scroll.css">
 
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -48,34 +47,6 @@
 
 <body>
 
-  <!-- Sidebar Navigation -->
-  <div class="sidebar-nav">
-    <div class="nav-line"></div>
-    <a href="#Abstract" class="nav-item active" data-target="Abstract">
-      <span class="nav-dot"></span>
-      <span class="nav-label">Abstract</span>
-    </a>
-    <a href="#Layer-Analysis" class="nav-item" data-target="Layer-Analysis">
-      <span class="nav-dot"></span>
-      <span class="nav-label">Analysis</span>
-    </a>
-    <a href="#Architecture" class="nav-item" data-target="Architecture">
-      <span class="nav-dot"></span>
-      <span class="nav-label">Method</span>
-    </a>
-    <a href="#Visualization" class="nav-item" data-target="Visualization">
-      <span class="nav-dot"></span>
-      <span class="nav-label">Visualization</span>
-    </a>
-    <a href="#Quantitative-Results" class="nav-item" data-target="Quantitative-Results">
-      <span class="nav-dot"></span>
-      <span class="nav-label">Experiments</span>
-    </a>
-    <a href="#BibTeX" class="nav-item" data-target="BibTeX">
-      <span class="nav-dot"></span>
-      <span class="nav-label">Citation</span>
-    </a>
-  </div>
 
   <!-- Navigation bar. -->
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
@@ -126,9 +97,9 @@
           </h2> -->
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://onground-korea.github.io/">Jisang Han</a><sup>1*</sup>,</span>
+                <a href="https://onground-korea.github.io/">Jisang Han</a><sup>1,2*</sup>,</span>
               <span class="author-block">
-                <a href="https://sunghwanhong.github.io/">Sunghwan Hong</a><sup>2*</sup>,</span>
+                <a href="https://sunghwanhong.github.io/">Sunghwan Hong</a><sup>3*</sup>,</span>
               <span class="author-block">
                 <a href="https://crepejung00.github.io/">Jaewoo Jung</a><sup>1</sup>,
               </span>
@@ -141,21 +112,21 @@
             </div>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://qianqianwang68.github.io/">Qianqian Wang</a><sup>3</sup>,
+                <a href="https://qianqianwang68.github.io/">Qianqian Wang</a><sup>4</sup>,
               </span>
               <span class="author-block">
                 <a href="https://scholar.google.com/citations?user=cIK1hS8AAAAJ">Seungryong Kim</a><sup>1†</sup>,
               </span>
               <span class="author-block"></span>
-              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a><sup>4†</sup>,
+              <a href="https://scholar.google.com/citations?user=YeG8ZM0AAAAJ">Chen Feng</a><sup>2†</sup>,
               </span>
             </div>
 
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup> KAIST AI&nbsp;</span>
-              <span class="author-block"><sup>2</sup> ETH AI Center, ETH Zurich&nbsp;</span>
-              <span class="author-block"><sup>3</sup> UC Berkeley&nbsp;</span>
-              <span class="author-block"><sup>4</sup> New York University&nbsp;</span>
+              <span class="author-block"><sup>2</sup> New York University&nbsp;</span>
+              <span class="author-block"><sup>3</sup> ETH AI Center, ETH Zurich&nbsp;</span>
+              <span class="author-block"><sup>4</sup> UC Berkeley&nbsp;</span>
               <br>
               <span class="author-block"><sup>*</sup> Equal Contribution </span>
               <span class="author-block"><sup>†</sup> Co-corresponding authors </span>
@@ -198,7 +169,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width">
-          <p class="tldr">
+          <p class="tldr has-text-centered">
             We reveal that Visual Geometry Grounded Transformers (VGGT) has a built-in ability to detect outliers, which
             we leverage to perform outlier-view rejection without any fine-tuning.
           </p>
@@ -395,6 +366,13 @@
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
                 transform: scale(1.05);
               }
+
+              @media screen and (max-width: 768px) {
+                .scene-btn {
+                  padding: 8px 15px;
+                  font-size: 0.85rem;
+                }
+              }
             </style>
 
           </div>
@@ -408,7 +386,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width" style="border: 3px solid #dbdbdb; border-radius: 10px; padding: 20px;">
-          <h2 class="title is-3 has-text-centered">Visualization</h2>
+          <h2 class="title is-3 has-text-centered">Visualization from various datasets</h2>
           <div class="content has-text-justified">
 
             <center>

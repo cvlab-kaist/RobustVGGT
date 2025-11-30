@@ -331,9 +331,9 @@ body {
 .affiliation-container {
   display: flex;
   align-items: center;
-  /* justify-content: center; Removed for left align */
-  gap: 0.5rem;
-  /* width: 100%; Removed for left align */
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .affiliation-link {
@@ -343,7 +343,7 @@ body {
 }
 
 .kaist-link {
-  margin-right: 0.5rem;
+  margin-right: 0.8rem;
   /* Extra space between KAIST and NYU */
 }
 
