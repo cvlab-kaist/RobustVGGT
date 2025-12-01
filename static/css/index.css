@@ -484,3 +484,79 @@ body {
     padding-bottom: 1.5rem;
   }
 }
+
+.bold-text {
+  font-weight: 800;
+}
+
+/* Table Styles adapted */
+.table-container {
+  margin: 2rem 0;
+  padding: 1rem;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.1), 0 5px 20px 0px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  overflow-x: auto;
+}
+
+.advantages-table {
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0 auto;
+}
+
+.advantages-table th,
+.advantages-table td {
+  padding: 0.3rem 0.2rem;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+
+.advantages-table th {
+  background-color: #f7fafc;
+  color: #2d3748;
+  font-weight: bold;
+  border-bottom: 2px solid #cbd5e0;
+}
+
+.advantages-table .model-col {
+  text-align: left;
+  font-weight: 500;
+  padding-left: 0.5rem;
+  min-width: 140px;
+}
+
+.advantages-table .section-header {
+  background-color: #edf2f7;
+  font-weight: bold;
+  text-align: center;
+  color: #4a5568;
+  padding: 0.4rem;
+}
+
+.advantages-table .highlight-row {
+  background-color: #ebf8ff;
+  /* Light blue highlight */
+}
+
+.advantages-table .gray-row {
+  background-color: #f7fafc;
+  color: #718096;
+}
+
+.advantages-table .border-left {
+  border-left: 2px solid #e2e8f0;
+}
+
+.advantages-table .best-val {
+  font-weight: bold;
+}
+
+.advantages-table .second-best-val {
+  text-decoration: underline;
+}
