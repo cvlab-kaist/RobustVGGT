@@ -20,7 +20,7 @@
   <h4 align="center"><sup>1</sup>KAIST AI, <sup>2</sup>New York University, <sup>3</sup>ETH AI Center, ETH Zurich, <sup>4</sup>UC Berkeley</h4>
   <!-- <p align="center"><sup>‡</sup>Work done during a visiting researcher at New York University&emsp;<sup>*</sup>Equal contributions&emsp;<sup>†</sup>Co-corresponding</p> -->
   <h3 align="center">
-    <a href="#">arXiv</a> | 
+    <a href="https://arxiv.org/abs/2512.04012">arXiv</a> | 
     <a href="https://github.com/cvlab-kaist/RobustVGGT/releases/download/paper/Emergent.Outlier.View.Rejection.in.Visual.Geometry.Grounded.Transformers.pdf">Paper (High quality)</a> | 
     <a href="https://cvlab-kaist.github.io/RobustVGGT">Project Page</a>
   </h3>
@@ -69,11 +69,14 @@ python robust_vggt.py --image-dir examples/notredame --rej-thresh 0.3
 ## Citation
 
 ```
-@article{han2024emergent,
-  title={Emergent Outlier View Rejection in Visual Geometry Grounded Transformers},
-  author={Han, Jisang and Hong, Sunghwan and Jung, Jaewoo and Jang, Wooseok and An, Honggyu and Wang, Qianqian and Kim, Seungryong and Feng, Chen},
-  journal={arXiv preprint arXiv:2410.xxxxx},
-  year={2024}
+@misc{han2025emergentoutlierviewrejection,
+      title={Emergent Outlier View Rejection in Visual Geometry Grounded Transformers}, 
+      author={Jisang Han and Sunghwan Hong and Jaewoo Jung and Wooseok Jang and Honggyu An and Qianqian Wang and Seungryong Kim and Chen Feng},
+      year={2025},
+      eprint={2512.04012},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2512.04012}, 
 }
 ```
 
