@@ -42,6 +42,38 @@
 
   <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
   <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+  <style>
+    .pub-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 17px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .pub-btn:hover { opacity: 0.8; transform: translateY(-1px); }
+    .pub-btn-paper {
+      background: rgba(37, 99, 235, 0.09);
+      color: #1d4ed8;
+      border: 1px solid rgba(37, 99, 235, 0.25);
+    }
+    .pub-btn-arxiv {
+      background: rgba(185, 28, 28, 0.07);
+      color: #b91c1c;
+      border: 1px solid rgba(185, 28, 28, 0.22);
+    }
+    .pub-btn-code {
+      background: rgba(31, 41, 55, 0.06);
+      color: #374151;
+      border: 1px solid rgba(31, 41, 55, 0.18);
+    }
+  </style>
+
 </head>
 
 
@@ -89,12 +121,6 @@
           <div class="column has-text-centered">
             <h1 class="title is-2 publication-title">Emergent Outlier View Rejection in Visual Geometry Grounded
               Transformers</h1>
-            <!-- <div class="column is-full_width">
-            <h2 class="title is-4"><a href="https://2025.ieee-icra.org">ICRA 2025 (Under Review)</a></h2>
-          </div> -->
-            <!-- <h2 class="subtitle is-2 has-text-weight-bold publication-subtitle mt-2">
-            On Review
-          </h2> -->
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://onground-korea.github.io/">Jisang Han</a><sup>1,2*</sup>,</span>
@@ -134,38 +160,26 @@
 
 
 
+            <!-- Venue text -->
+            <div class="has-text-centered" style="margin: 20px 0 4px;">
+              <a href="https://cvpr.thecvf.com/Conferences/2026" target="_blank"
+                style="text-decoration: none; color: #1565c0; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.05em;">
+                CVPR 2026
+              </a>
+            </div>
+
             <div class="column has-text-centered">
-              <div class="publication-links">
-
-                <span class="link-block">
-                  <a href="https://github.com/cvlab-kaist/RobustVGGT/releases/download/paper/Emergent.Outlier.View.Rejection.in.Visual.Geometry.Grounded.Transformers.pdf"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper (High quality)</span>
-                  </a>
-                </span>
-
-                <span class="link-block">
-                  <!-- add here later. -->
-                  <a href="https://arxiv.org/abs/2512.04012" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-
-                <span class="link-block">
-                  <a href="https://github.com/cvlab-kaist/RobustVGGT"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
+              <div class="publication-links" style="display:flex; gap:9px; justify-content:center; flex-wrap:wrap;">
+                <a href="https://github.com/cvlab-kaist/RobustVGGT/releases/download/paper/Emergent.Outlier.View.Rejection.in.Visual.Geometry.Grounded.Transformers.pdf"
+                  class="pub-btn pub-btn-paper" target="_blank">
+                  <i class="fas fa-file-pdf"></i> Paper
+                </a>
+                <a href="https://arxiv.org/abs/2512.04012" class="pub-btn pub-btn-arxiv" target="_blank">
+                  <i class="ai ai-arxiv"></i> arXiv
+                </a>
+                <a href="https://github.com/cvlab-kaist/RobustVGGT" class="pub-btn pub-btn-code" target="_blank">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
 
