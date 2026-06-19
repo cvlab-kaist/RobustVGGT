@@ -69,6 +69,27 @@ python robust_vggt.py --image-dir examples/trevi
 python robust_vggt.py --image-dir examples/notredame --rej-thresh 0.3
 ```
 
+## Visualizing Demo Outputs
+
+After generating demo predictions in the same conda environment from the installation section, you can export visualization artifacts with:
+
+```bash
+conda activate robust_vggt
+python visualize_demo_result.py --input output/demo_result
+```
+
+This writes visualization files under `output/demo_result/visualizations/`, including RGB and depth grids, a confidence grid, a top-down camera trajectory image, and a sparse point cloud preview. You can also point `--input` to a specific prediction file such as `output/demo_result/predictions_survived.npz`.
+
+For custom export settings:
+
+```bash
+python visualize_demo_result.py \
+  --input output/demo_result \
+  --output-dir output/demo_result/custom_visualizations \
+  --stride 8 \
+  --max-points 300000
+```
+
 ## Citation
 
 ```

@@ -1,6 +1,7 @@
 numpy==1.26.4
 pillow
 opencv-python
+matplotlib
 plyfile
 huggingface_hub
 safetensors
